@@ -1,0 +1,15 @@
+vim9script
+
+const CONFIG_PATH = has("win32") ? expand("~/vimconfig") : expand("~/.config/vim")
+
+export def Init()
+	syntax on
+
+	exec $"source {CONFIG_PATH}/Mappings.vim"
+	exec $"source {CONFIG_PATH}/Options.vim"
+	exec $"source {CONFIG_PATH}/StatusLine.vim"
+	exec $"source {CONFIG_PATH}/Plugins/NERDTree.vim"
+	exec $"source {CONFIG_PATH}/Plugins/LSP.vim"
+
+	packadd vimwiki # Load the vimwiki plugin
+enddef
