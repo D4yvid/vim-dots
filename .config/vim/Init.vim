@@ -11,7 +11,7 @@ PluginManager.AddPlugin("yegappan/lsp", { autoload: true, mod: 'lsp' })
 PluginManager.AddPlugin("vimwiki/vimwiki", { autoload: false })
 PluginManager.AddPlugin("morhetz/gruvbox", { autoload: false })
 PluginManager.AddPlugin("preservim/nerdtree", { autoload: false })
-PluginManager.AddPlugin("akielaries/vim-s-asm", { autoload: false })
+PluginManager.AddPlugin("akielaries/vim-s-asm", { autoload: true, rt: 'syntax/s-asm.vim' })
 PluginManager.AddPlugin("Yggdroot/indentLine", { autoload: false })
 PluginManager.AddPlugin("sheerun/vim-polyglot", { autoload: true, mod: 'vim-polyglot' })
 PluginManager.AddPlugin("LunarWatcher/auto-pairs", { autoload: true, mod: 'auto-pairs' })
@@ -22,5 +22,6 @@ PluginManager.AddPlugin("junegunn/fzf.vim", { autoload: true, mod: 'fzf.vim' })
 
 PluginManager.Install()
 
+au BufRead,BufEnter,BufNew *.S setlocal ft=s-asm
 au VimEnter * Editor.Init()
 
