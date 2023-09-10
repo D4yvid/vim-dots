@@ -12,8 +12,11 @@ if [ "$out" = "y" ]; then
 	backup
 fi
 
-[ -d "~/.vimrc" ] && rm -rf ~/.vimrc
-[ -d "~/.config/vim" ] && rm -rf ~/.config/vim
+echo "[*] Deleting old .vimrc"
+rm -rf ~/.vimrc 2> /dev/null
+
+echo "[*] Deleting old ~/.config/vim"
+rm -rf ~/.config/vim 2> /dev/null
 
 echo "[*] Installing .vimrc"
 cp -r .vimrc ~/.vimrc
