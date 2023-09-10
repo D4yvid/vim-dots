@@ -19,9 +19,12 @@ PluginManager.AddPlugin("tpope/vim-surround", { autoload: true, mod: 'vim-surrou
 PluginManager.AddPlugin("PhilRunninger/nerdtree-visual-selection", { autoload: true, mod: 'nerdtree-visual-selection' })
 PluginManager.AddPlugin("junegunn/fzf", { autoload: true, mod: 'fzf' })
 PluginManager.AddPlugin("junegunn/fzf.vim", { autoload: true, mod: 'fzf.vim' })
+PluginManager.AddPlugin("tpope/vim-commentary", { autoload: true, mod: 'vim-commentary' })
 
 PluginManager.Install()
 
 au BufRead,BufEnter,BufNew *.S setlocal ft=s-asm
+au BufRead,BufEnter,BufNew *.asm setlocal ft=nasm
+
 au VimEnter * Editor.Init()
 

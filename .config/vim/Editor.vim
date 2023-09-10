@@ -11,5 +11,9 @@ export def Init()
 	exec $"source {CONFIG_PATH}/Plugins/NERDTree.vim"
 	exec $"source {CONFIG_PATH}/Plugins/LSP.vim"
 
-	packadd vimwiki # Load the vimwiki plugin
+	# Load the vimwiki plugin
+	packadd vimwiki
+
+	# Load user-defined options / plugin settings
+	silent! exec $"source {CONFIG_PATH}/User.vim"
 enddef
