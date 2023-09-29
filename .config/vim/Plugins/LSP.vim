@@ -57,9 +57,9 @@ g:LspOptionsSet({
 	showDiagInBalloon: false,
 	showDiagInPopup: true,
 	showDiagWithSign: true,
-	showInlayHints: true,
+	showInlayHints: false,
 	showSignature: true,
-	snippetSupport: false,
+	snippetSupport: true,
 	usePopupInCodeAction: true,
 	useBufferCompletion: true
 })
@@ -69,8 +69,8 @@ for server in servers
 endfor
 
 def g:OnLspAttach()
-	au CursorHold * LspDiagCurrent
+	au CursorHold <buffer> silent! LspDiagCurrent
 enddef
 
 au CompleteDone * pclose
-au user LspAttach * g:OnLspAttach()
+au User LspAttached g:OnLspAttach()

@@ -2,21 +2,32 @@ vim9script
 
 g:mapleader = ' '
 
-nmap <leader>e <cmd>NERDTree<CR>
-nmap <leader>f <cmd>Files<CR>
+nnoremap <leader>e <cmd>NERDTree<CR>
+nnoremap <leader>f <cmd>Files<CR>
 
-imap <expr><silent><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-imap <expr><silent><S-Tab> pumvisible() ? "\<C-s>" : "\<S-Tab>"
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
 
-imap <expr><silent><C-e> pclose
-imap <expr><silent><CR> pumvisible() ? "\<C-y>\<C-e>" : "\<CR>"
+inoremap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
+snoremap <expr> <C-j>   vsnip#expandable()  ? '<Plug>(vsnip-expand)'         : '<C-j>'
 
-nmap <silent>K <cmd>LspHover<CR>
-nmap <silent>gd <cmd>LspGotoDefinition<CR>
-nmap <silent>gD <cmd>LspGotoDeclaration<CR>
-nmap <silent>gt <cmd>LspGotoTypeDef<CR>
-nmap <silent>gi <cmd>LspGotoImpl<CR>
-nmap <silent><leader><leader> <cmd>LspCodeAction<CR>
-nmap <silent><A-Left> <cmd>LspDiagPrev<CR>
-nmap <silent><A-Right> <cmd>LspDiagNext<CR>
+inoremap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
+snoremap <expr> <C-l>   vsnip#available(1)  ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>'
+
+inoremap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : pumvisible() ? "\<C-n>" : "\<Tab>"
+snoremap <expr> <Tab>   vsnip#jumpable(1)   ? '<Plug>(vsnip-jump-next)'      : '<Tab>'
+inoremap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : pumvisible() ? "\<C-p>" : "\<S-Tab>"
+snoremap <expr> <S-Tab> vsnip#jumpable(-1)  ? '<Plug>(vsnip-jump-prev)'      : '<S-Tab>'
+
+nnoremap <silent>K <cmd>LspHover<CR>
+nnoremap <silent>gd <cmd>LspGotoDefinition<CR>
+nnoremap <silent>gD <cmd>LspGotoDeclaration<CR>
+nnoremap <silent>gt <cmd>LspGotoTypeDef<CR>
+nnoremap <silent>gi <cmd>LspGotoImpl<CR>
+nnoremap <silent><leader>d <cmd>LspDiagCurrent<CR>
+nnoremap <silent><leader>ie <cmd>LspInlayHints enable<CR>
+nnoremap <silent><leader>id <cmd>LspInlayHints enable<CR>
+nnoremap <silent><leader><leader> <cmd>LspCodeAction<CR>
+nnoremap <silent><A-Left> <cmd>LspDiagPrev<CR>
+nnoremap <silent><A-Right> <cmd>LspDiagNext<CR>
+nnoremap <silent><leader>r <cmd>LspSwitchSourceHeader<CR>
 

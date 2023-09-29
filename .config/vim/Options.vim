@@ -9,6 +9,8 @@ set background=dark
 
 set clipboard=unnamedplus
 set mouse+=a
+set shortmess+=c
+set updatetime=300
 
 set tabstop=8
 set softtabstop=8
@@ -26,6 +28,8 @@ set signcolumn=yes
 set fillchars=eob:\ ,vert:┃
 set noshowmode
 set conceallevel=3
+
+set completeopt=menuone,popuphidden,noinsert,noselect
 
 hi clear SignColumn
 

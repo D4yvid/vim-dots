@@ -7,6 +7,8 @@ filetype on
 
 PluginManager.Init()
 
+PluginManager.AddPlugin("hrsh7th/vim-vsnip-integ", { autoload: true, mod: 'vim-vsnip-integ', rt: 'autoload/vsnip_integ.vim' })
+PluginManager.AddPlugin("hrsh7th/vim-vsnip", { autoload: true, mod: 'vim-vsnip', rt: 'autoload/vsnip.vim' })
 PluginManager.AddPlugin("yegappan/lsp", { autoload: true, mod: 'lsp' })
 PluginManager.AddPlugin("vimwiki/vimwiki", { autoload: false })
 PluginManager.AddPlugin("morhetz/gruvbox", { autoload: false })
@@ -26,5 +28,5 @@ PluginManager.Install()
 au BufRead,BufEnter,BufNew *.S setlocal ft=s-asm
 au BufRead,BufEnter,BufNew *.asm setlocal ft=nasm
 
-au VimEnter * Editor.Init()
+Editor.Init()
 
