@@ -1,0 +1,43 @@
+{
+	"inlayHint.enable": false,
+
+	"diagnostic.refreshOnInsertMode": true,
+
+	"diagnostic.format": "%message\n%source: %code",
+	"diagnostic.virtualText": true,
+	"diagnostic.virtualTextPrefix": "█ ",
+	"diagnostic.virtualTextAlign": "after",
+	"diagnostic.virtualTextCurrentLineOnly": false,
+	"coc.preferences.enableMarkdown": true,
+
+	"suggest.formatItems": [ "kind", "abbr", "menu", "shortcut" ],
+	"suggest.acceptSuggestionOnCommitCharacter": true,
+	"suggest.completionItemKindLabels": {
+		"text": "  ",
+		"method": "  ",
+		"function": "  ",
+		"constructor": "  ",
+		"field": "  ",
+		"variable": "  ",
+		"class": "  ",
+		"interface": "  ",
+		"module": "  ",
+		"property": "  ",
+		"unit": "  ",
+		"value": "  ",
+		"enum": "  ",
+		"keyword": "  ",
+		"snippet": "  ",
+		"color": "  ",
+		"file": "  ",
+		"reference": "  ",
+		"folder": "  ",
+		"enumMember": "  ",
+		"constant": "  ",
+		"struct": "  ",
+		"event": "  ",
+		"operator": "  ",
+		"typeParameter": "  ",
+		"default": ""
+	}
+}

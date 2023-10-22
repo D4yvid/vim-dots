@@ -9,7 +9,6 @@ export def Init()
 	exec $"source {CONFIG_PATH}/Options.vim"
 	exec $"source {CONFIG_PATH}/StatusLine.vim"
 	exec $"source {CONFIG_PATH}/Plugins/NERDTree.vim"
-	exec $"source {CONFIG_PATH}/Plugins/LSP.vim"
 	exec $"source {CONFIG_PATH}/Plugins/VimWiki.vim"
 
 	# Load user-defined options / plugin settings

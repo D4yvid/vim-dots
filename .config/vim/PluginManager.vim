@@ -54,7 +54,7 @@ def CloneFinished(index: number, code: number, handle: dict<any>): void
 	handle.OnFinish(handle)
 enddef
 
-def CloneRepository(repoURL: string, targetDir: string, OnUpdate: func, OnFinish: func): bool
+def CloneRepository(repoURL: string, targetDir: string, extraCmdline: list<string>, OnUpdate: func, OnFinish: func): bool
 	if !valid
 		echoerr "Tried to clone a repository without git installed, aborting."
 		return false
@@ -68,6 +68,8 @@ def CloneRepository(repoURL: string, targetDir: string, OnUpdate: func, OnFinish
 		targetDir,
 		"--depth=1"
 	]
+
+	command->extend(extraCmdline)
 
 	var index = rand()
 
@@ -131,7 +133,13 @@ export def Install()
 			continue
 		endif
 
-		CloneRepository(info.url, finalDirectory, Dummy, (handle) => {
+		var cmdline = []
+
+		if info.opts->has_key("branch")
+			cmdline = ["-b", info.opts.branch]
+		endif
+
+		CloneRepository(info.url, finalDirectory, cmdline, Dummy, (handle) => {
 			if info.opts.autoload
 				if info.opts->has_key("mod")
 					silent! exec $"packadd {info.opts.mod}"

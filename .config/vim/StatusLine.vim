@@ -81,32 +81,7 @@ def g:GetFileType(): string
 enddef
 
 def g:GetLspServer(): string
-	if !exists('g:lsp#buffer#CurbufGetServer')
-		return ""
-	endif
-
-	var server = g:lsp#buffer#CurbufGetServer()
-
-	if server->empty()
-		return ""
-	endif
-
-	var bufferDiags = lsp#diag#DiagsGetErrorCount(bufnr())
-	var diags = ""
-
-	if bufferDiags.Error > 0
-		diags ..= $"%#DiffDelete#  {bufferDiags.Error} %#StatusLine#"
-	endif
-
-	if bufferDiags.Hint > 0 || bufferDiags.Info > 0
-		diags ..= $"%#DiffChange#  {bufferDiags.Hint + bufferDiags.Info} %#StatusLine#"
-	endif
-
-	if bufferDiags.Warn > 0
-		diags ..= $"%#DiffText#  {bufferDiags.Warn} %#StatusLine#"
-	endif
-
-	return $"{diags}%#StatusLineNC# 󰣖 {server.name} %#StatusLine#"
+	silent! return coc#status()
 enddef
 
 set statusline=%{%g:GetCurrentMode()%}%=
