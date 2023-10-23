@@ -2,7 +2,7 @@ vim9script
 
 g:vimwiki_list = [
 	{
-		path: '~/Documents/Notes',
+		path: '~/Notes',
 		syntax: 'markdown',
 		ext: '.md'
 	}
